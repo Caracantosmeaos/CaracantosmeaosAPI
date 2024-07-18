@@ -2,6 +2,8 @@ import express, { Express, Request, Response, NextFunction } from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 
+
+
 const app:Express = express();
 
 const DEVMODE = process.env.DEVMODE || false
@@ -20,8 +22,8 @@ if(DEVMODE){
 
 
 /* RUTAS */
-var clubRouter = require("./routes/club");
-var membersRouter = require("./routes/members");
+import membersRouter from './routes/members';
+import clubRouter from './routes/club';
 app.use("/club",clubRouter);
 app.use("/members",membersRouter);
 
