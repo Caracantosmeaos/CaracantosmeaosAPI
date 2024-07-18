@@ -1,6 +1,7 @@
-import ProClubsAPI, { TPlatformType } from '../../ProClubsAPI'
+import  { TPlatformType } from '../../ProClubsAPI'
 import { Router, Request, Response } from 'express';
 import { IClubMemberStats } from '../../ProClubsAPI/dist/model/club';
+import { getClubMembers } from '../../ProClubsAPI';
 
 const CLUBID:number = Number(process.env.CLUBID || '290776');
 const PLATFORM:string = String(process.env.PLATFORM || 'common-gen5')
@@ -14,7 +15,7 @@ async function formatResponse(response: IClubMemberStats[]|undefined){
 }
 
 router.get("/", async function (req: Request, res: Response){
-    const resp = await ProClubsAPI.getClubMembers(<TPlatformType>PLATFORM, CLUBID);
+    const resp = await getClubMembers(<TPlatformType>PLATFORM, CLUBID);
     const respFormated = await formatResponse(resp);
 
     res.send(respFormated);
