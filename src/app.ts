@@ -1,26 +1,16 @@
-//https://gitlab.com/firstTerraner/proclubs-api.git
-//https://firstterraner.gitlab.io/proclubs-api/
-//const CLUBID = 290776;
+import express, { Express, Request, Response, NextFunction } from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
 
-const config = require('./config')
-var express = require("express");
-var bodyparser = require("body-parser");
-var cors = require('cors');
-var app = express();
+const app:Express = express();
 
+const DEVMODE = process.env.DEVMODE || false
+const PORT = Number(process.env.PORT || 80)
 
-const setParams = function (req, res, next) {
-    req.clubid = config.CLUBID;
-    req.platform = config.PLATFORM
-    next();
-  }
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(setParams);
-
-app.use(bodyparser.json());
-app.use(bodyparser.urlencoded({extended: true}));
-
-if(config.DEVMODE){
+if(DEVMODE){
     app.use(cors());
 }else{
     app.use(cors({
@@ -54,7 +44,6 @@ app.get("/", async function (req, res){
     });
 });
 
-var port = 80
 app.set('trust proxy', true);
-app.listen(port, '0.0.0.0');
-console.log("Listening on port "+port);
+app.listen(PORT, '0.0.0.0');
+console.log("Listening on port "+PORT);
