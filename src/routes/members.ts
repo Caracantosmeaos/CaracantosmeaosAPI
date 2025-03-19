@@ -2,11 +2,12 @@ import  { TPlatformType } from '../../ProClubsAPI'
 import { Router, Request, Response } from 'express';
 import { IClubMemberStats } from '../../ProClubsAPI/dist/model/club';
 import { getClubMembers } from '../../ProClubsAPI';
-
-const CLUBID:number = Number(process.env.CLUBID || '290776');
-const PLATFORM:string = String(process.env.PLATFORM || 'common-gen5')
+import { getAllMembers, getMemberByName } from "@controllers/clubMember.controller"
 
 const router = Router()
+
+/*const CLUBID:number = Number(process.env.CLUBID || '290776');
+const PLATFORM:string = String(process.env.PLATFORM || 'common-gen5')
 
 async function formatResponse(response: IClubMemberStats[]|undefined){
     if(response!=null && response!=undefined){
@@ -19,6 +20,10 @@ router.get("/", async function (req: Request, res: Response){
     const respFormated = await formatResponse(resp);
 
     res.send(respFormated);
-});
+});*/
+
+router.get("/:playername", getMemberByName)
+
+router.get("/", getAllMembers)
 
 export default router;
