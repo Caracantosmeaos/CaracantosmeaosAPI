@@ -1,4 +1,4 @@
-import {Schema, model} from "mongoose"
+import { Schema, model } from "mongoose"
 import { IClubMember } from "@interfaces/clubMember.interface"
 
 const clubMemberSchema = new Schema<IClubMember>(
@@ -12,76 +12,76 @@ const clubMemberSchema = new Schema<IClubMember>(
             type: String,
             required: true
         },
-        proPos:{
+        proPos: {
             type: Number,
             required: true
         },
-        proHeight:{
+        proHeight: {
             type: Number,
             required: true
         },
-        proOverall:{
+        proOverall: {
             type: Number,
             required: true
         },
-        manOfTheMatch:{
+        manOfTheMatch: {
             type: Number,
             required: true
         },
-        favoritePosition:{
+        favoritePosition: {
             type: String,
-            enum: ["midfielder" , "forward" , "defender" , "goalkeeper"],
+            enum: ["midfielder", "forward", "defender", "goalkeeper"],
             required: true
         },
-        gamesPlayed:{
+        gamesPlayed: {
             type: Number,
             required: true
         },
-        winRate:{
+        winRate: {
             type: Number,
             required: true
         },
-        goals:{
+        goals: {
             type: Number,
             required: true
         },
-        assists:{
+        assists: {
             type: Number,
             required: true
         },
-        cleanSheetsDef:{
+        cleanSheetsDef: {
             type: Number,
             required: true
         },
-        cleanSheetsGK:{
+        cleanSheetsGK: {
             type: Number,
             required: true
         },
-        shots:{
+        shots: {
             type: Number,
             required: true
         },
-        passesMade:{
+        passesMade: {
             type: Number,
             required: true
         },
-        passesSuccess:{
+        passesSuccess: {
             type: Number,
             required: true
         },
-        ratingAve:{
+        ratingAve: {
             type: Number,
             required: true
         },
-        tacklesMade:{
+        tacklesMade: {
             type: Number,
             required: true
         },
-        tacklesSuccess:{
+        tacklesSuccess: {
             type: Number,
             required: true
         },
-        redCards:{
+        redCards: {
             type: Number,
             required: true
         },

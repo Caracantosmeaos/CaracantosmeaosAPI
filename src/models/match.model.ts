@@ -1,4 +1,4 @@
-import {Schema, model} from "mongoose"
+import { Schema, model } from "mongoose"
 import { IMatch } from "srcinterfaces/match.interface"
 
 const matchSchema = new Schema<IMatch>(
@@ -7,7 +7,7 @@ const matchSchema = new Schema<IMatch>(
             type: Number,
             required: true
         },
-        matchType:{
+        matchType: {
             type: String,
             enum: ["league", "playoff"],
             required: true
@@ -129,6 +129,8 @@ const matchSchema = new Schema<IMatch>(
         versionKey: false
     }
 )
+
+matchSchema.index({ matchId: 1 }, { unique: true });
 
 const MatchModel = model("matches", matchSchema)
 export default MatchModel
