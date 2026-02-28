@@ -29,7 +29,7 @@ const mapClubStats = (rawStats: any) => {
         ties: Number(statsStats?.ties) || 0,
         losses: Number(statsStats?.losses) || 0,
         winstreak: Number(statsStats?.wstreak) || 0,
-        unbeatenstreak: Number(statsStats?.unbeatingstreak) || 0,
+        unbeatenstreak: Number(statsStats?.unbeatenstreak) || 0,
         skill: Number(statsStats?.skillRating) || 0,
         reputationtier: Number(statsStats?.reputationtier) || 0
     };
